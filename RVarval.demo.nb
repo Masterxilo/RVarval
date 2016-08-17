@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      1475,         53]
-NotebookOptionsPosition[      1128,         36]
-NotebookOutlinePosition[      1474,         51]
-CellTagsIndexPosition[      1431,         48]
+NotebookDataLength[      9581,        273]
+NotebookOptionsPosition[      8862,        242]
+NotebookOutlinePosition[      9360,        263]
+CellTagsIndexPosition[      9275,        258]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -26,16 +26,222 @@ Cell["for prototyping rvarval testcases", "Chapter",
 Cell[BoxData["Quit"], "Input",
  CellChangeTimes->{{3.6791567036171446`*^9, 3.679156704170586*^9}}],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
- RowBox[{
-  RowBox[{"<<", "RVarval`"}], "\[IndentingNewLine]"}]], "Input",
+ RowBox[{"?", "RVarvalMake"}]], "Input",
+ CellChangeTimes->{{3.680371419114204*^9, 3.6803714829548883`*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"RVarvalMake[\!\(\*StyleBox[\\\"x0vv:_[_[_, \
+_?MachineNumberQ]...]\\\", \\\"TI\\\"]\)]\\n\tCreate a new RVarval from a \
+rule-list.\\nRVarvalMake[\!\(\*StyleBox[\\\"vars_List, (vals_)?NumericVectorQ\
+\\\", \\\"TI\\\"]\)] /; Length[vars] == Length[vals]\\n\tCreate a new RVarval \
+from a list of variables and \
+values\\nRVarvalMake[\!\(\*StyleBox[\\\"(vals_)?NumericVectorQ\\\", \
+\\\"TI\\\"]\)]\\n\tCreate a new RVarval from a list of values.\\n    Variable \
+names are generated as in FiniteMappingMakeFromList\"\>", "MSG"]], "Print", \
+"PrintUsage",
+ CellChangeTimes->{3.680371483394396*^9},
+ CellTags->"Info83680378683-4712404"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"<<", "RVarval`"}], "\[IndentingNewLine]", 
+ RowBox[{"Information", "[", "\"\<RVarval`*\>\"", "]"}]}], "Input",
  CellChangeTimes->{{3.679049651139269*^9, 3.6790496924318314`*^9}, 
    3.6790497820207157`*^9, {3.679050646632352*^9, 3.6790506708165646`*^9}, {
-   3.6790507501936803`*^9, 3.6790507517486267`*^9}, 3.6791585613915386`*^9}]
+   3.6790507501936803`*^9, 3.6790507517486267`*^9}, 3.6791585613915386`*^9, {
+   3.6803713209056473`*^9, 3.680371352277792*^9}}],
+
+Cell[BoxData[
+ DynamicModuleBox[{Typeset`open$$ = True}, 
+  PaneSelectorBox[{False->
+   RowBox[{
+    OpenerBox[Dynamic[Typeset`open$$],
+     ImageSize->Small], 
+    StyleBox["RVarval`", "InfoHeading"]}], True->GridBox[{
+     {
+      RowBox[{
+       OpenerBox[Dynamic[Typeset`open$$],
+        ImageSize->Small], 
+       StyleBox["RVarval`", "InfoHeading"]}]},
+     {GridBox[{
+        {
+         ButtonBox["RVarval",
+          BaseStyle->"InformationLinkLF",
+          ButtonData:>{"Info23680378653-4712404", {"RVarval", "RVarval`"}},
+          ButtonNote->"RVarval`"], 
+         ButtonBox["RVVLength",
+          BaseStyle->"InformationLinkLF",
+          ButtonData:>{"Info23680378653-4712404", {"RVVLength", "RVarval`"}},
+          ButtonNote->"RVarval`"]},
+        {
+         ButtonBox["RVarvalAsFiniteMapping",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {"RVarvalAsFiniteMapping", "RVarval`"}},
+          ButtonNote->"RVarval`"], 
+         ButtonBox["RVVLookupByVarIndex",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {"RVVLookupByVarIndex", "RVarval`"}},
+          ButtonNote->"RVarval`"]},
+        {
+         ButtonBox["RVarvalMake",
+          BaseStyle->"InformationLinkLF",
+          ButtonData:>{"Info23680378653-4712404", {"RVarvalMake", "RVarval`"}},
+          ButtonNote->"RVarval`"], 
+         ButtonBox["RVVLookupByVarIndices",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {"RVVLookupByVarIndices", "RVarval`"}},
+          ButtonNote->"RVarval`"]},
+        {
+         ButtonBox["RVarvalMakeConstant",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {"RVarvalMakeConstant", "RVarval`"}},
+          ButtonNote->"RVarval`"], 
+         ButtonBox["RVVLookupVar",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {"RVVLookupVar", "RVarval`"}},
+          ButtonNote->"RVarval`"]},
+        {
+         ButtonBox["RVarvalMakeFromFiniteMapping",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {
+            "RVarvalMakeFromFiniteMapping", "RVarval`"}},
+          ButtonNote->"RVarval`"], 
+         ButtonBox["RVVLookupVars",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {"RVVLookupVars", "RVarval`"}},
+          ButtonNote->"RVarval`"]},
+        {
+         ButtonBox["RVarvalMakePairIndexed",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {"RVarvalMakePairIndexed", "RVarval`"}},
+          ButtonNote->"RVarval`"], 
+         ButtonBox["RVVPlus",
+          BaseStyle->"InformationLinkLF",
+          ButtonData:>{"Info23680378653-4712404", {"RVVPlus", "RVarval`"}},
+          ButtonNote->"RVarval`"]},
+        {
+         ButtonBox["RVarvalSlicePairIndexed",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {"RVarvalSlicePairIndexed", "RVarval`"}},
+          ButtonNote->"RVarval`"], 
+         ButtonBox["RVVRename",
+          BaseStyle->"InformationLinkLF",
+          ButtonData:>{"Info23680378653-4712404", {"RVVRename", "RVarval`"}},
+          ButtonNote->"RVarval`"]},
+        {
+         ButtonBox["RVVAsRules",
+          BaseStyle->"InformationLinkLF",
+          ButtonData:>{"Info23680378653-4712404", {"RVVAsRules", "RVarval`"}},
+          ButtonNote->"RVarval`"], 
+         ButtonBox["RVVScale",
+          BaseStyle->"InformationLinkLF",
+          ButtonData:>{"Info23680378653-4712404", {"RVVScale", "RVarval`"}},
+          ButtonNote->"RVarval`"]},
+        {
+         ButtonBox["RVVComponentwiseBinary",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {"RVVComponentwiseBinary", "RVarval`"}},
+          ButtonNote->"RVarval`"], 
+         ButtonBox["RVVSublist",
+          BaseStyle->"InformationLinkLF",
+          ButtonData:>{"Info23680378653-4712404", {"RVVSublist", "RVarval`"}},
+          ButtonNote->"RVarval`"]},
+        {
+         ButtonBox["RVVComponentwiseUnary",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {"RVVComponentwiseUnary", "RVarval`"}},
+          ButtonNote->"RVarval`"], 
+         ButtonBox["RVVTimes",
+          BaseStyle->"InformationLinkLF",
+          ButtonData:>{"Info23680378653-4712404", {"RVVTimes", "RVarval`"}},
+          ButtonNote->"RVarval`"]},
+        {
+         ButtonBox["RVVDeleteMultiple",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {"RVVDeleteMultiple", "RVarval`"}},
+          ButtonNote->"RVarval`"], 
+         ButtonBox["RVVUpdate",
+          BaseStyle->"InformationLinkLF",
+          ButtonData:>{"Info23680378653-4712404", {"RVVUpdate", "RVarval`"}},
+          ButtonNote->"RVarval`"]},
+        {
+         ButtonBox["RVVDeleteOne",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {"RVVDeleteOne", "RVarval`"}},
+          ButtonNote->"RVarval`"], 
+         ButtonBox["RVVValues",
+          BaseStyle->"InformationLinkLF",
+          ButtonData:>{"Info23680378653-4712404", {"RVVValues", "RVarval`"}},
+          ButtonNote->"RVarval`"]},
+        {
+         ButtonBox["RVVDot",
+          BaseStyle->"InformationLinkLF",
+          ButtonData:>{"Info23680378653-4712404", {"RVVDot", "RVarval`"}},
+          ButtonNote->"RVarval`"], 
+         ButtonBox["RVVValuesMatrix",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {"RVVValuesMatrix", "RVarval`"}},
+          ButtonNote->"RVarval`"]},
+        {
+         ButtonBox["RVVDropVariableNames",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {"RVVDropVariableNames", "RVarval`"}},
+          ButtonNote->"RVarval`"], 
+         ButtonBox["RVVVariables",
+          BaseStyle->"InformationLinkLF",
+          
+          ButtonData:>{
+           "Info23680378653-4712404", {"RVVVariables", "RVarval`"}},
+          ButtonNote->"RVarval`"]}
+       },
+       DefaultBaseStyle->"InfoGrid",
+       GridBoxItemSize->{"Columns" -> {{
+            Scaled[0.475]}}}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
+   Dynamic[Typeset`open$$],
+   ImageSize->Automatic]]], "Print", "InfoCell",
+ CellChangeTimes->{3.680371453360937*^9}]
+}, Open  ]]
 }, Open  ]]
 },
 WindowSize->{678, 1008},
-WindowMargins->{{285, Automatic}, {Automatic, 437}},
+WindowMargins->{{Automatic, 315}, {0, Automatic}},
 FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (April 11, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -43,17 +249,31 @@ StyleDefinitions->"Default.nb"
 
 (* Internal cache information *)
 (*CellTagsOutline
-CellTagsIndex->{}
+CellTagsIndex->{
+ "Info83680378683-4712404"->{
+  Cell[949, 34, 661, 11, 150, "Print",
+   CellTags->"Info83680378683-4712404"]}
+ }
 *)
 (*CellTagsIndex
-CellTagsIndex->{}
+CellTagsIndex->{
+ {"Info83680378683-4712404", 9171, 252}
+ }
 *)
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 118, 1, 64, "Chapter"],
 Cell[701, 25, 98, 1, 31, "Input"],
-Cell[802, 28, 310, 5, 52, "Input"]
+Cell[CellGroupData[{
+Cell[824, 30, 122, 2, 31, "Input"],
+Cell[949, 34, 661, 11, 150, "Print",
+ CellTags->"Info83680378683-4712404"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1647, 50, 409, 6, 52, "Input"],
+Cell[2059, 58, 6775, 180, 355, "Print"]
+}, Open  ]]
 }, Open  ]]
 }
 ]
